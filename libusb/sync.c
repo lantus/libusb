@@ -23,7 +23,39 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+#include <exec/exec.h>
+#include <dos/dos.h>
+#include <graphics/gfx.h>
+#include <intuition/intuition.h>
+#include <intuition/pointerclass.h>
+
+#include <proto/exec.h>
+#include <proto/graphics.h>
+#include <proto/intuition.h>
+#include <proto/lowlevel.h>
+#include <proto/dos.h>
+
+
+
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <proto/intuition.h>
+
+#include <proto/utility.h>
+#include <proto/graphics.h>
+#include <proto/poseidon.h>
+#include <proto/cybergraphics.h>
+
+
+#include <clib/alib_protos.h>
+
+#include <cybergraphx/cybergraphics.h>
+#include <graphics/gfx.h>
+
+#include <stdlib.h>
 #include "libusbi.h"
 
 /**

@@ -49,3 +49,5 @@ Release
 *.orig
 .dirstamp
 .amend
+.vscode/.BROWSE.VC.DB-wal
+*.DB

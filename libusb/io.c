@@ -1218,12 +1218,12 @@ static int calculate_timeout(struct usbi_transfer *transfer)
 		return r;
 	}
 
-	current_time.tv_sec += timeout / 1000;
-	current_time.tv_nsec += (timeout % 1000) * 1000000;
+	current_time.ts_sec += timeout / 1000;
+	current_time.ts_nsec += (timeout % 1000) * 1000000;
 
-	while (current_time.tv_nsec >= 1000000000) {
-		current_time.tv_nsec -= 1000000000;
-		current_time.tv_sec++;
+	while (current_time.ts_nsec >= 1000000000) {
+		current_time.ts_nsec -= 1000000000;
+		current_time.ts_sec++;
 	}
 
 	TIMESPEC_TO_TIMEVAL(&transfer->timeout, &current_time);

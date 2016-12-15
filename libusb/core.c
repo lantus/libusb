@@ -66,6 +66,8 @@ const struct usbi_os_backend * const usbi_backend = &wince_backend;
 const struct usbi_os_backend * const usbi_backend = &haiku_usb_raw_backend;
 #elif defined (OS_SUNOS)
 const struct usbi_os_backend * const usbi_backend = &sunos_backend;
+#elif defined (OS_AMIGA)
+const struct usbi_os_backend * const usbi_backend = &amiga_backend;
 #else
 #error "Unsupported OS"
 #endif

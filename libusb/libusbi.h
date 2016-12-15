@@ -170,8 +170,8 @@ static inline void *usbi_reallocf(void *ptr, size_t size)
 #ifndef TIMESPEC_TO_TIMEVAL
 #define TIMESPEC_TO_TIMEVAL(tv, ts)					\
 	do {								\
-		(tv)->tv_sec = (TIMEVAL_TV_SEC_TYPE) (ts)->tv_sec;	\
-		(tv)->tv_usec = (ts)->tv_nsec / 1000;			\
+		(tv)->tv_secs = (TIMEVAL_TV_SEC_TYPE) (ts)->tv_secs;	\
+		(tv)->tv_micro = (ts)->tv_micro / 1000;			\
 	} while (0)
 #endif
 
@@ -246,6 +246,8 @@ static inline void usbi_dbg(const char *format, ...)
 #include "os/threads_posix.h"
 #elif defined(OS_WINDOWS) || defined(OS_WINCE)
 #include "os/threads_windows.h"
+#elif defined(__AMIGA__)
+#include "os/threads_amiga.h"
 #endif
 
 extern struct libusb_context *usbi_default_context;
@@ -538,6 +540,8 @@ int usbi_clear_event(struct libusb_context *ctx);
 #include "os/poll_posix.h"
 #elif defined(OS_WINDOWS) || defined(OS_WINCE)
 #include "os/poll_windows.h"
+#elif defined (__AMIGA__)
+#include "os/poll_amiga.h"
 #endif
 
 #if (defined(OS_WINDOWS) || defined(OS_WINCE)) && !defined(__GNUC__)
@@ -1143,6 +1147,7 @@ extern const struct usbi_os_backend usbdk_backend;
 extern const struct usbi_os_backend wince_backend;
 extern const struct usbi_os_backend haiku_usb_raw_backend;
 extern const struct usbi_os_backend sunos_backend;
+extern const struct usbi_os_backend amiga_backend;
 
 extern struct list_head active_contexts_list;
 extern usbi_mutex_static_t active_contexts_lock;
